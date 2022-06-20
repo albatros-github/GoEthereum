@@ -16,6 +16,17 @@ export PATH="/path/to/geth:$PATH"
 save file and then execute
 . ~/.profile
 
+ ... OR ...
+ 
+ LINUX/UBUNTU USERS:
+
+You can also install geth directly:
+
+    sudo apt-get install software-properties-common
+    sudo add-apt-repository -y ppa:ethereum/ethereum
+    sudo apt-get update
+    sudo apt-get install geth
+
 ## 2. INIT BLOCKCHAIN NODE FOR PUBLIC BLOCKCHAIN ONLY:
 
 ### 2.1 run for first time to sync node
@@ -44,9 +55,43 @@ geth --datadir=./chaindata init ./genesis.json
 
 geth --datadir=./chaindata --nodiscover
 
+or start irt mining from first account, it will ask next for the password  offirst account (0)
+
+geth --datadir=./chaindata --nodiscover --unlock 0 --mine 1
+
 ## 5. attach to the JavaScript RCP interface to interact with the node
 
 //Path appears in the logs of the first sync, with the "chinID" (reserved: 1 for mainnet, 2 and 3 for test network)
 
 geth attach ipc:/path/to/geth.ipc   
 
+---------------------------------------------------------
+# commands inside 
+
+## get accounts
+
+eth.accounts
+
+## create accounts (creates a private keuy inside ~/.ethereum/keystore or ./chaindata/keystore public an private respectively)
+
+personal.newAccount()
+
+## account where mined ethh will go
+
+eth.coinbase
+
+## the miner coinbase account could be xconfigure like this
+
+miner.setEtherbase(eth.accounts[0])
+
+## start mining. the parameter is the number of threads i.e 1
+
+miner.start(1)
+
+## get acount's balance in wei
+
+web3.eth.getBalance(eth.accounts[0])
+
+## ... and in eth
+
+web3.fromWei(web3.eth.getBalance(eth.accounts[0]), "ether")
