@@ -16,7 +16,7 @@ export PATH="/path/to/geth:$PATH"
 save file and then execute
 . ~/.profile
 
-## 2. FOR PUBLIC BLOCKCHAIN ONLY:
+## 2. INIT BLOCKCHAIN NODE FOR PUBLIC BLOCKCHAIN ONLY:
 
 ### 2.1 run for first time to sync node
 geth
@@ -30,7 +30,7 @@ geth attach ipc:/path/to/geth.ipc
 
 ~/.ethereum dir has the blocks in "chaindata" dir and the private keys in "keystore" dir
 
-## 3. FOR PRIVATE BLOCKCHAIN:
+## 3. INIT BLOCKCHAIN NODE FOR PRIVATE BLOCKCHAIN:
 
 ### 3.1 create an empty rootDir, and inside it, create a dir called "chaindata"
 
@@ -39,3 +39,14 @@ geth attach ipc:/path/to/geth.ipc
 ### 3.3 create private blockchain
 
 geth --datadir=./chaindata init ./genesis.json
+
+## 4. start geth node RCP interface and identify IPC endpoint opened url=/... in logs:
+
+geth --datadir=./chaindata --nodiscover
+
+## 5. attach to the JavaScript RCP interface to interact with the node
+
+//Path appears in the logs of the first sync, with the "chinID" (reserved: 1 for mainnet, 2 and 3 for test network)
+
+geth attach ipc:/path/to/geth.ipc   
+
