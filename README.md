@@ -2,7 +2,7 @@
 
 go ethereum (geth) is a blockchain node infrastructure
 
-## 1. install last version and check periodically (no auto-update, manuually requiered): 
+## 1. install last version and check periodically (no auto-update, manually requiered): 
 
 https://geth.ethereum.org/docs/install-and-build/installing-geth
 
@@ -80,7 +80,7 @@ personal.newAccount()
 
 eth.coinbase
 
-## the miner coinbase account could be xconfigure like this
+## the miner coinbase account could be configure like this
 
 miner.setEtherbase(eth.accounts[0])
 
