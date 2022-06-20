@@ -16,7 +16,7 @@ export PATH="/path/to/geth:$PATH"
 save file and then execute
 . ~/.profile
 
-## 2.(FOR PUBLIC BLO0CKCHAIN ONLY):
+## 2. FOR PUBLIC BLOCKCHAIN ONLY:
 
 ### 2.1 run for first time to sync node
 geth
@@ -30,7 +30,7 @@ geth attach ipc:/path/to/geth.ipc
 
 ~/.ethereum dir has the blocks in "chaindata" dir and the private keys in "keystore" dir
 
-## 3. (FOR PRIVATE BLOCKCHAIN):
+## 3. FOR PRIVATE BLOCKCHAIN:
 
 ### 3.1 create an empty rootDir, and inside it, create a dir called "chaindata"
 
